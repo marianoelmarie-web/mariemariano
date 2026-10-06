@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elmarie Mariano | Portfolio</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#08050d;
+    color:#f5f3ff;
+    line-height:1.6;
+}
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(8,5,13,.95);
+    border-bottom:1px solid #6d28d9;
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 0 20px rgba(139,92,246,.25);
+}
+
+nav h2{
+    color:#a855f7;
+    font-size:25px;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:25px;
+}
+
+nav a{
+    color:#f5f3ff;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#a855f7;
+}
+
+section{
+    padding:90px 8%;
+    min-height:70vh;
+}
+
+h2{
+    color:#a855f7;
+    font-size:35px;
+    margin-bottom:35px;
+    text-align:center;
+}
+
+#home{
+    min-height:92vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:
+        radial-gradient(circle at top,#4c1d95,transparent 45%),
+        linear-gradient(135deg,#08050d,#170b26);
+}
+
+#home h1{
+    color:#ffffff;
+    font-size:52px;
+    margin-bottom:10px;
+    text-shadow:0 0 20px rgba(168,85,247,.7);
+}
+
+#home p{
+    color:#d8c9f5;
+    font-size:19px;
+}
+
+.profile-img{
+    width:190px;
+    height:190px;
+    object-fit:cover;
+    border-radius:50%;
+    border:4px solid #a855f7;
+    margin-bottom:25px;
+    box-shadow:
+        0 0 20px #7c3aed,
+        0 0 50px rgba(168,85,247,.4);
+}
+
+.btn{
+    display:inline-block;
+    margin-top:25px;
+    background:#7c3aed;
+    color:white;
+    padding:13px 30px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:bold;
+    box-shadow:0 0 20px rgba(124,58,237,.6);
+    transition:.3s;
+}
+
+.btn:hover{
+    background:#a855f7;
+    transform:translateY(-3px);
+}
+
+#about{
+    background:#0d0a12;
+}
+
+.about-box{
+    max-width:850px;
+    margin:auto;
+    text-align:center;
+    background:#15101d;
+    padding:40px;
+    border-radius:20px;
+    border:1px solid #3b1a63;
+    box-shadow:0 0 25px rgba(124,58,237,.15);
+}
+
+.about-box p{
+    margin-bottom:15px;
+    color:#d6cce3;
+    font-size:17px;
+}
+
+#skills{
+    background:#08050d;
+}
+
+.skills-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:22px;
+    max-width:1000px;
+    margin:auto;
+}
+
+.skill{
+    background:#15101d;
+    padding:25px;
+    text-align:center;
+    border-radius:15px;
+    border:1px solid #3b1a63;
+    color:#eee5ff;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.skill:hover{
+    transform:translateY(-7px);
+    border-color:#a855f7;
+    box-shadow:0 0 20px rgba(168,85,247,.35);
+}
+
+#tech{
+    background:#0d0a12;
+}
+
+.tech-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:22px;
+    max-width:1000px;
+    margin:auto;
+}
+
+.tech{
+    background:linear-gradient(145deg,#171020,#0f0a15);
+    color:#c084fc;
+    padding:25px;
+    text-align:center;
+    border-radius:15px;
+    border:1px solid #5b21b6;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.tech:hover{
+    color:white;
+    border-color:#a855f7;
+    box-shadow:0 0 25px rgba(168,85,247,.4);
+    transform:translateY(-7px);
+}
+
+#projects{
+    background:#08050d;
+}
+
+.projects-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    max-width:1100px;
+    margin:auto;
+}
+
+.project{
+    background:#15101d;
+    padding:30px;
+    border-radius:18px;
+    border:1px solid #3b1a63;
+    transition:.3s;
+}
+
+.project:hover{
+    transform:translateY(-8px);
+    border-color:#a855f7;
+    box-shadow:0 0 25px rgba(168,85,247,.3);
+}
+
+.project h3{
+    color:#c084fc;
+    margin-bottom:12px;
+    font-size:21px;
+}
+
+.project p{
+    color:#d6cce3;
+}
+#education{
+    background:#0d0a12;
+}
+
+.education-box{
+    max-width:800px;
+    margin:auto;
+    background:#15101d;
+    padding:35px;
+    border-radius:18px;
+    text-align:center;
+    border:1px solid #3b1a63;
+    box-shadow:0 0 25px rgba(124,58,237,.15);
+}
+
+.education-box h3{
+    color:#c084fc;
+    margin-bottom:12px;
+}
+
+#contact{
+    background:#08050d;
+}
+
+.contact-box{
+    text-align:center;
+    max-width:700px;
+    margin:auto;
+}
+
+.contact-box p{
+    margin:12px 0;
+    color:#d6cce3;
+}
+
+.contact-box a{
+    color:#c084fc;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+footer{
+    background:#050308;
+    color:#a78bfa;
+    text-align:center;
+    padding:28px;
+    border-top:1px solid #3b1a63;
+}
+
+@media(max-width:700px){
+    nav{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:12px;
+    }
+
+    #home h1{
+        font-size:36px;
+    }
+
+    #home p{
+        font-size:16px;
+    }
+
+    section{
+        padding:65px 6%;
+    }
+
+    h2{
+        font-size:30px;
+    }
+
+    .profile-img{
+        width:155px;
+        height:155px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <h2>Elmarie</h2>
+
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#tech">Tech Stacks</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<section id="home">
+    <div>
+
+        <img src="profile.jpg"
+             alt="Elmarie Mariano"
+             class="profile-img">
+
+        <h1>Hi, I'm Elmarie Mariano</h1>
+
+        <p>BS Information Technology Student</p>
+        <p>Nueva Vizcaya State University, Philippines</p>
+
+        <a href="#about" class="btn">Learn More</a>
+
+    </div>
+</section>
+
+<section id="about">
+
+    <div class="about-box">
+
+        <h2>About Me</h2>
+
+        <p>
+            I am a Bachelor of Science in Information Technology
+            student at Nueva Vizcaya State University.
+        </p>
+
+        <p>
+            I am interested in web development, networking,
+            system analysis, and technology. I enjoy learning
+            new technologies and creating projects that improve
+            my technical and creative skills.
+        </p>
+
+    </div>
+
+</section>
+
+<section id="skills">
+
+    <h2>My Skills</h2>
+
+    <div class="skills-container">
+
+        <div class="skill">HTML & CSS</div>
+        <div class="skill">Web Development</div>
+        <div class="skill">Basic Programming</div>
+        <div class="skill">Networking</div>
+        <div class="skill">System Analysis</div>
+        <div class="skill">Documentation</div>
+        <div class="skill">Microsoft Office</div>
+        <div class="skill">Problem Solving</div>
+
+    </div>
+
+</section>
+
+<section id="tech">
+
+    <h2>Tech Stacks</h2>
+
+    <div class="tech-container">
+
+        <div class="tech">HTML</div>
+        <div class="tech">CSS</div>
+        <div class="tech">JavaScript</div>
+        <div class="tech">Canva</div>
+        <div class="tech">Microsoft Office</div>
+        <div class="tech">Microsoft Power Apps</div>
+        <div class="tech">Power Fx</div>
+        <div class="tech">SharePoint Lists</div>
+        <div class="tech">Cisco Packet Tracer</div>
+
+    </div>
+
+</section>
+
+<section id="projects">
+
+    <h2>My Projects</h2>
+
+    <div class="projects-container">
+
+        <div class="project">
+
+            <h3>Canva Poster Design</h3>
+
+            <p>
+                Designed a poster using Canva for a
+                school activity and presentation.
+            </p>
+
+        </div>
+
+        <div class="project">
+
+            <h3>
+                Online Equipment and Borrowing Management System
+            </h3>
+
+            <p>
+                A proposed system for managing equipment
+                borrowing and returning transactions at
+                Bayombong Central School.
+            </p>
+
+        </div>
+
+        <div class="project">
+
+            <h3>Networking Projects</h3>
+
+            <p>
+                School networking activities and exercises
+                using Cisco Packet Tracer.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="education">
+
+    <h2>Education</h2>
+
+    <div class="education-box">
+
+        <h3>
+            Bachelor of Science in Information Technology
+        </h3>
+
+        <p>
+            Nueva Vizcaya State University
+        </p>
+
+        <p>
+            Philippines
+        </p>
+
+    </div>
+
+</section>
+
+<section id="contact">
+
+    <div class="contact-box">
+
+        <h2>Contact Me</h2>
+
+        <p>
+            I would be happy to connect with you.
+        </p>
+
+        <p>
+            Email:
+            <a href="mailto:your-email@example.com">
+                your-email@example.com
+            </a>
+        </p>
+
+        <p>
+            Location: Philippines
+        </p>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <p>
+        © 2026 Elmarie Mariano. All Rights Reserved.
+    </p>
+
+</footer>
+
+</body>
+</html>
